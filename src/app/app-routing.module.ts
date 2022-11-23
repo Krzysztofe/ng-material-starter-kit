@@ -6,6 +6,7 @@ import { CryptoComponent } from './components/crypto/crypto.component';
 import { HolidaysComponent } from './components/holidays/holidays.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { TableComponent } from './components/table/table.component';
 import { ProductListComponentModule } from './components/product-list/product-list.component-module';
 import { ProductsServiceModule } from './services/products.service-module';
 import { ProductCategoryComponentModule } from './components/product-category/product-category.component-module';
@@ -15,9 +16,10 @@ import { HolidaysComponentModule } from './components/holidays/holidays.componen
 import { HolidaysServiceModule } from './services/holidays.service-module';
 import { CheckboxComponentModule } from './components/checkbox/checkbox.component-module';
 import { MenuComponentModule } from './components/menu/menu.component-module';
+import { TableComponentModule } from './components/table/table.component-module';
 
 @NgModule({
-  imports: [RouterModule.forRoot([{ path: 'products', component: ProductListComponent }, { path: 'products-category', component: ProductCategoryComponent }, { path: 'crypto', component: CryptoComponent }, { path: 'holiday', component: HolidaysComponent }, { path: 'checkbox-categories', component: CheckboxComponent }, { path: 'categories-menu', component: MenuComponent }]), ProductListComponentModule, ProductsServiceModule, ProductCategoryComponentModule, CryptoComponentModule, CryptoServiceModule, HolidaysComponentModule, HolidaysServiceModule, CheckboxComponentModule, MenuComponentModule],
+  imports: [RouterModule.forRoot([{ path: 'products', component: ProductListComponent }, { path: 'products-category', component: ProductCategoryComponent }, { path: 'crypto', component: CryptoComponent }, { path: 'holiday', component: HolidaysComponent }, { path: 'checkbox-categories', component: CheckboxComponent }, { path: 'categories-menu', component: MenuComponent }, { path: 'table', component: TableComponent }]), ProductListComponentModule, ProductsServiceModule, ProductCategoryComponentModule, CryptoComponentModule, CryptoServiceModule, HolidaysComponentModule, HolidaysServiceModule, CheckboxComponentModule, MenuComponentModule, TableComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
