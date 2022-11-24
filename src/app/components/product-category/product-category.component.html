@@ -2,6 +2,9 @@
 <mat-card>
   <mat-card-title>Select category</mat-card-title>
   <mat-card-content>
-    <mat-list role="list"><mat-list-item role="listitem" *ngFor="let item of list$ | async">{{item.category}}</mat-list-item></mat-list>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of category$ | async">
+        {{item}}</mat-list-item>
+    </mat-list>
   </mat-card-content>
 </mat-card>
