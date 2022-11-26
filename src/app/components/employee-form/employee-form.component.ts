@@ -9,7 +9,9 @@ import { EmployeeService } from '../../services/employee.service';
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class EmployeeFormComponent {
+
   readonly employeeForm: FormGroup = new FormGroup({
     name: new FormControl(),
     salary: new FormControl(),
