@@ -1,6 +1,10 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
+import {Observable} from "rxjs";
+import {ProductModel} from "../../models/product.model";
+import {ProductsService} from "../../services/products.service";
+import {ProductSelectService} from "../../services/product-select.service";
 
 @Component({
   selector: 'app-product-form',
@@ -13,12 +17,14 @@ export class ProductFormComponent {
   readonly productForm: FormGroup = new FormGroup({
     title: new FormControl(),
     price: new FormControl(),
-    descryption: new FormControl(),
+    description: new FormControl(),
     image: new FormControl(),
     category: new FormControl()
   });
 
-  constructor(private _productService: ProductService) {
+
+
+  constructor(private _productService: ProductService, private _productSelectService: ProductSelectService) {
   }
 
   onProductFormSubmitted(productForm: FormGroup): void {
@@ -26,8 +32,13 @@ export class ProductFormComponent {
       title: productForm.get('title')?.value,
       category: productForm.get('category')?.value,
       price: productForm.get('price')?.value,
-      description: productForm.get('desctiption')?.value,
+      description: productForm.get('description')?.value,
       image: productForm.get('image')?.value
     }).subscribe();
   }
+
+  readonly select$: Observable<ProductModel[]> =
+    this._productSelectService.getAll();
+
+
 }

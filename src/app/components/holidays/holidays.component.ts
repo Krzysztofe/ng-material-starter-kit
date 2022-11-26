@@ -11,7 +11,8 @@ import { HolidaysService } from '../../services/holidays.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HolidaysComponent {
-  readonly holidays$: Observable<HolidayModel[]> = this._holidaysService.getAll();
+  readonly holidays$: Observable<HolidayModel[]>
+    = this._holidaysService.getAll();
 
   constructor(private _holidaysService: HolidaysService) {
   }
