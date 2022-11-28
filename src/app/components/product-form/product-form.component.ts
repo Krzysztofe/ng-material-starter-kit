@@ -3,7 +3,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
 import {Observable} from "rxjs";
 import {ProductModel} from "../../models/product.model";
-import {ProductsService} from "../../services/products.service";
 import {ProductSelectService} from "../../services/product-select.service";
 
 @Component({
@@ -14,6 +13,10 @@ import {ProductSelectService} from "../../services/product-select.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductFormComponent {
+
+  constructor(private _productService: ProductService, private _productSelectService: ProductSelectService) {
+  }
+
   readonly productForm: FormGroup = new FormGroup({
     title: new FormControl(),
     price: new FormControl(),
@@ -22,10 +25,9 @@ export class ProductFormComponent {
     category: new FormControl()
   });
 
+  readonly select$: Observable<ProductModel[]> =
+    this._productSelectService.getAll();
 
-
-  constructor(private _productService: ProductService, private _productSelectService: ProductSelectService) {
-  }
 
   onProductFormSubmitted(productForm: FormGroup): void {
     this._productService.create({
@@ -36,9 +38,5 @@ export class ProductFormComponent {
       image: productForm.get('image')?.value
     }).subscribe();
   }
-
-  readonly select$: Observable<ProductModel[]> =
-    this._productSelectService.getAll();
-
 
 }
