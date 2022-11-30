@@ -101,7 +101,7 @@
       "container": "<ng-container *ngIf=\"$detailVariable$ | async as $itemVariable$\">$content$</ng-container>",
       "content": "<h1>$title$</h1>\n<p>$description$</p>"
     },
-    "public": {
+    "details": {
       "container": "<ng-container *ngIf=\"$detailVariable$ | async as $itemVariable$\">$content$</ng-container>",
       "content": "<h1>$type$</h1>\n<div>$activity$</div><button>$participants$</button><div>$key$</div>"
     }
