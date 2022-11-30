@@ -12,6 +12,7 @@ import {DetailsProductService} from "../../services/details-product.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DetailProductComponent {
+
   readonly productDetails$: Observable<DetailsProductModel> =
     this._activatedRoute.params.pipe(
       switchMap(data => this._detailProductService.getOne(
