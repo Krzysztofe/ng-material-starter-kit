@@ -5,11 +5,11 @@ import {CartModel} from "../models/cart.model";
 
 @Injectable()
 export class CartService {
-  constructor(private _httpClien: HttpClient) {
+  constructor(private _httpClient: HttpClient) {
   }
 
   getOne(id: string): Observable<CartModel>{
-    return this._httpClien.get<CartModel>(
+    return this._httpClient.get<CartModel>(
       `https://fakestoreapi.com/carts/${id}`)
   }
 
