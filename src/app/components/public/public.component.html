@@ -1,0 +1,6 @@
+<ng-container *ngIf="publicData$ | async as item">
+  <h1>Type: {{item.type}}</h1>
+  <div>Activity: {{item.activity}}</div>
+  <button>Participants {{item.participants}}</button>
+  <div>Key:{{item.key}}</div>
+</ng-container>

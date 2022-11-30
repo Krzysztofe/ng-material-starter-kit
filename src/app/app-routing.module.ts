@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {ProductListComponent} from './components/product-list/product-list.component';
 import {ProductCategoryComponent} from './components/product-category/product-category.component';
 import {CryptoComponent} from './components/crypto/crypto.component';
 import {HolidaysComponent} from './components/holidays/holidays.component';
@@ -13,7 +12,10 @@ import {LoginComponent} from './components/login/login.component';
 import {RegisterFormComponent} from './components/register-form/register-form.component';
 import {DetailProductComponent} from './components/detail-product/detail-product.component';
 import {CatComponent} from './components/cat/cat.component';
-import {ProductListComponentModule} from './components/product-list/product-list.component-module';
+import {AgeComponent} from './components/age/age.component';
+import {CartComponent} from './components/cart/cart.component';
+import {UserComponent} from './components/user/user.component';
+import {PublicComponent} from './components/public/public.component';
 import {ProductsServiceModule} from './services/products.service-module';
 import {ProductCategoryComponentModule} from './components/product-category/product-category.component-module';
 import {CryptoComponentModule} from './components/crypto/crypto.component-module';
@@ -37,10 +39,18 @@ import {DetailProductComponentModule} from './components/detail-product/detail-p
 import {DetailsProductServiceModule} from './services/details-product.service-module';
 import {CatComponentModule} from './components/cat/cat.component-module';
 import {CatServiceModule} from './services/cat.service-module';
+import {AgeComponentModule} from './components/age/age.component-module';
+import {AgeServiceModule} from './services/age.service-module';
+import {CartComponentModule} from './components/cart/cart.component-module';
+import {CartServiceModule} from './services/cart.service-module';
+import {UserComponentModule} from './components/user/user.component-module';
+import {UserServiceModule} from './services/user.service-module';
+import {PublicComponentModule} from './components/public/public.component-module';
+import {PublicServiceModule} from './services/public.service-module';
 
 @NgModule({
   imports: [RouterModule.forRoot(
-    [{path: 'products', component: ProductListComponent}, {
+    [{
       path: 'products-category',
       component: ProductCategoryComponent
     }, {path: 'crypto', component: CryptoComponent}, {
@@ -58,34 +68,14 @@ import {CatServiceModule} from './services/cat.service-module';
     }, {path: 'register', component: RegisterFormComponent}, {
       path: 'product/:id',
       component: DetailProductComponent
-    }, {
-      path: 'cat-facts',
-      component: CatComponent
-    }]),
-    ProductListComponentModule,
-    ProductsServiceModule,
-    ProductCategoryComponentModule,
-    CryptoComponentModule,
-    CryptoServiceModule,
-    HolidaysComponentModule,
-    HolidaysServiceModule,
-    CheckboxComponentModule,
-    MenuComponentModule,
-    TableComponentModule,
-    CategoriesServiceModule,
-    ProductFormComponentModule,
-    ProductServiceModule,
-    EmployeeFormComponentModule,
-    EmployeeServiceModule,
-    LoginComponentModule,
-    LoginServiceModule,
-    RegisterFormComponentModule,
-    RegisterFormServiceModule,
-    ProductSelectServiceModule,
-    DetailProductComponentModule,
-    DetailsProductServiceModule,
-    CatComponentModule,
-    CatServiceModule],
+    }, {path: 'cat-facts', component: CatComponent},
+      {path: 'age/:name', component: AgeComponent}, {
+      path: 'cart/:id',
+      component: CartComponent
+    }, {path: 'user/:id', component: UserComponent}, {
+      path: 'public',
+      component: PublicComponent
+    }]), ProductsServiceModule, ProductCategoryComponentModule, CryptoComponentModule, CryptoServiceModule, HolidaysComponentModule, HolidaysServiceModule, CheckboxComponentModule, MenuComponentModule, TableComponentModule, CategoriesServiceModule, ProductFormComponentModule, ProductServiceModule, EmployeeFormComponentModule, EmployeeServiceModule, LoginComponentModule, LoginServiceModule, RegisterFormComponentModule, RegisterFormServiceModule, ProductSelectServiceModule, DetailProductComponentModule, DetailsProductServiceModule, CatComponentModule, CatServiceModule, AgeComponentModule, AgeServiceModule, CartComponentModule, CartServiceModule, UserComponentModule, UserServiceModule, PublicComponentModule, PublicServiceModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
